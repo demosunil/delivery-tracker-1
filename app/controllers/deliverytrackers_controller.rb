@@ -28,7 +28,8 @@ class DeliverytrackersController < ApplicationController
     
     if the_deliverytracker.valid?
       the_deliverytracker.save
-      redirect_to("/deliverytrackers", { :notice => "Deliverytracker created successfully." })
+
+      redirect_to("/deliverytrackers", { :notice => "Added to list."})
     else
       redirect_to("/deliverytrackers", { :alert => the_deliverytracker.errors.full_messages.to_sentence })
     end
