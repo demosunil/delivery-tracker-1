@@ -129,3 +129,40 @@
 </div>
 
 <hr>
+  <% @diff =(Date.today - a_deliverytracker.arrivedate%>
+     <%if @diff >3 %>
+          <div style="color:red;">
+          Supposed to arrive on<%=a_deliverytracker.arrivedate%></div>   
+     <%else%>
+           <div style="color:black;">
+           Supposed to arrive on<%=a_deliverytracker.arrivedate%></div>   
+      <%end%>
+      
+
+      <div style="background-color:lightgoldenrodyellow;">
+         
+          Supposed to arrive on<%= a_deliverytracker.arrivedate %>
+         </div>
+<!--br>
+      <hr>
+        <div style="background-color:lightgoldenrodyellow;">
+         
+          Supposed to arrive on<%= a_deliverytracker.arrivedate %>
+         </div>
+        
+        
+       <div><%= a_deliverytracker.details%></div>
+         <div>
+          <form action="/modify_deliverytracker/<%= a_deliverytracker.id %>" method="post">
+            <input type="hidden" name="query_status" value="Received">
+            <button>Mark as received</button>
+          </form>
+        </div>
+        </li>
+        </ul>
+   <%end%>
+    <br>
+      
+</div>
+
+<hr-->

@@ -59,4 +59,5 @@ class DeliverytrackersController < ApplicationController
 
     redirect_to("/deliverytrackers", { :notice => "Deliverytracker deleted successfully."} )
   end
+  
 end

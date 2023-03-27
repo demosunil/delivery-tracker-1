@@ -26,6 +26,7 @@
         <input type="date" id="arrivedate_box" name="query_arrivedate">
       </div>
 
+     
       <div>
         <label for="details_box">Details</label>
         <textarea id="details_box" name="query_details" rows="3">
@@ -43,31 +44,38 @@
     <h2>Waiting on</h2>
     <% @waiting_deliverytrackers .each do |a_deliverytracker|%>
       <ul>
-       
       <li>
         <div><%= a_deliverytracker.content %></div>
-
-        <div style="background-color:lightgoldenrodyellow;">
-   
-          Supposed to arrive on<%= a_deliverytracker.arrivedate %>
-          
-        </div>
-       <div><%= a_deliverytracker.details%></div>
-       
-         <div>
+    <!--div-->
+  
+     <% @diff =(Date.today - a_deliverytracker.arrivedate).to_i%>
+     <%if @diff >3 %>
+          <div style="color:red;">
+          Supposed to arrive on<%=a_deliverytracker.arrivedate%></div> 
+          <div><%= a_deliverytracker.details%></div>
+         <div style="background-color:lightgoldenrodyellow;">
           <form action="/modify_deliverytracker/<%= a_deliverytracker.id %>" method="post">
             <input type="hidden" name="query_status" value="Received">
             <button>Mark as received</button>
           </form>
         </div>
-        </li>
-        </ul>
-        <%end%>
-        <br>
-      
-</div>
 
-<hr>
+      <% else %>
+           <div style="color:black;">
+           Supposed to arrive on<%=a_deliverytracker.arrivedate%></div>   
+         <div><%= a_deliverytracker.details%></div>
+         <div style="background-color:lightgoldenrodyellow;" >
+          <form action="/modify_deliverytracker/<%= a_deliverytracker.id %>" method="post">
+            <input type="hidden" name="query_status" value="Received">
+            <button>Mark as received</button>
+          </form>
+        </div>
+        <% end %>
+
+          </li>
+          </ul>
+       <% end %>
+    </div>
 <div class="received" style="background-color:lightgreen;">
   <h2>Received</h2>
 
@@ -86,5 +94,6 @@
         </div>
       </li>
   </ul>
-  <%end%>
+      <%end%>
 </div>
+ 
