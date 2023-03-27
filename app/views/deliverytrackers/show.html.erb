@@ -1,0 +1,131 @@
+<div>
+  <div>
+    <h1>
+      Deliverytracker #<%= @the_deliverytracker.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/deliverytrackers">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_deliverytracker/<%= @the_deliverytracker.id %>">
+          Delete deliverytracker
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Content
+      </dt>
+      <dd>
+        <%= @the_deliverytracker.content %>
+      </dd>
+
+      <dt>
+        Arrivedate
+      </dt>
+      <dd>
+        <%= @the_deliverytracker.arrivedate %>
+      </dd>
+
+      <dt>
+        Details
+      </dt>
+      <dd>
+        <%= @the_deliverytracker.details %>
+      </dd>
+
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_deliverytracker.user_id %>
+      </dd>
+
+      <dt>
+        Status
+      </dt>
+      <dd>
+        <%= @the_deliverytracker.status %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_deliverytracker.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_deliverytracker.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit deliverytracker
+    </h2>
+
+    <form action="/modify_deliverytracker/<%= @the_deliverytracker.id %>"  method="post" >
+      <div>
+        <label for="content_box">
+          Content
+        </label>
+
+        <input type="text" id="content_box" name="query_content" value="<%= @the_deliverytracker.content %>">
+      </div>
+
+      <div>
+        <label for="arrivedate_box">
+          Arrivedate
+        </label>
+
+        <input type="date" id="arrivedate_box" name="query_arrivedate" value="<%= @the_deliverytracker.arrivedate %>">
+      </div>
+
+      <div>
+        <label for="details_box">
+          Details
+        </label>
+
+        <input type="text" id="details_box" name="query_details" value="<%= @the_deliverytracker.details %>">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_deliverytracker.user_id %>">
+      </div>
+
+      <div>
+        <label for="status_box">
+          Status
+        </label>
+
+        <input type="text" id="status_box" name="query_status" value="<%= @the_deliverytracker.status %>">
+      </div>
+
+      <button>
+        Update deliverytracker
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
